@@ -11,5 +11,9 @@ Route::get('/about',function(){
     return inertia('About',['user' => 'Mike']);
 });
 
+Route::get('/test',function(){
+    return Inertia::render('Test');
+});
+
 // Alternative 
 // Route::inertia('/about','About',['user' => 'Mike']);
