@@ -5,7 +5,7 @@
 <template>
 
     <Head>
-        <title>Home Page</title>
+        <title>{{ $page.component }}</title>
         <meta head-key="desc" name="description" content="Home page description">
     </Head>
 

@@ -6,7 +6,7 @@
 <template>
 
     <Head>
-        <title>Test</title>
+        <title>{{ $page.component }}</title>
     </Head>
 
     <div>

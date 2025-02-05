@@ -9,7 +9,7 @@
 <template>
 
     <Head>
-        <title>About</title>
+        <title>{{ $page.component }}</title>
     </Head>
 
     <div>
