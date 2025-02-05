@@ -6,7 +6,7 @@ import { Link,Head } from '@inertiajs/vue3';
 
     <Head>
         <title>Home Page</title>
-        <meta name="description" content="Home page description">
+        <meta head-key="desc" name="description" content="Home page description">
     </Head>
 
     <h1>Home Page</h1>
