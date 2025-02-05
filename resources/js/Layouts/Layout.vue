@@ -6,6 +6,7 @@ import {Link,Head} from "@inertiajs/vue3";
 
     <Head>
         <title>My App</title>
+        <meta name="description" content="My App description">
     </Head>
 
     <div>
