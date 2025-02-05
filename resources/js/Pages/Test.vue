@@ -1,6 +1,5 @@
 <script setup>
     import Demo from "../Layouts/Demo.vue";
-    import {Head} from "@inertiajs/vue3";
     defineOptions({ layout:Demo});
 </script>
 

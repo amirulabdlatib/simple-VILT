@@ -1,5 +1,5 @@
 <script setup>
-import {Link,Head} from "@inertiajs/vue3";
+
 </script>
 
 <template>
