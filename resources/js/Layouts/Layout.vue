@@ -5,7 +5,6 @@ import {Link,Head} from "@inertiajs/vue3";
 <template>
 
     <Head>
-        <title>My App</title>
         <meta head-key="desc" name="description" content="My App description">
     </Head>
 
