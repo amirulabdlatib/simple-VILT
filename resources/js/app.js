@@ -3,7 +3,7 @@ import './bootstrap';
 import { createApp, h } from 'vue'
 import { createInertiaApp, Head, Link } from '@inertiajs/vue3'
 import Layout from './Layouts/Layout.vue';
-import ZiggyVue from '../../vendor/tightenco/ziggy';
+import {ZiggyVue} from '../../vendor/tightenco/ziggy';
 
 createInertiaApp({
   title: (title) => `My App | ${title}`,
