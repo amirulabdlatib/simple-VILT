@@ -1,4 +1,18 @@
-<script setup></script>
+<script setup>
+import { reactive } from 'vue';
+
+    const form = reactive({
+        name:null,
+        email:null,
+        password:null,
+        password_confirmation:null,
+    });
+
+    const submit = () =>{
+        console.log(form);
+    }
+
+</script>
 
 <template>
 
@@ -8,22 +22,22 @@
     <div class="w-2/4 mx-auto">
         <h1 class="mb-3">Register a new account</h1>
 
-        <form>
+        <form @submit.prevent="submit">
             <div class="mb-6">
                 <label>Name</label>
-                <input type="text">
+                <input type="text" v-model="form.name">
             </div>
             <div class="mb-6">
                 <label>Email</label>
-                <input type="text">
+                <input type="text" v-model="form.email">
             </div>
             <div class="mb-6">
                 <label>Password</label>
-                <input type="password">
+                <input type="password" v-model="form.password">
             </div>
             <div class="mb-6">
                 <label>Confirm Password</label>
-                <input type="password">
+                <input type="password" v-model="form.password_confirmation">
             </div>
 
             <div>
