@@ -26,7 +26,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect()->intended('dashboard');
+        return redirect()->intended('dashboard')->with('message','Welcome to our Application!');
 
     }
 
