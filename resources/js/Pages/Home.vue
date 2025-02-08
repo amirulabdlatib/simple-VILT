@@ -25,13 +25,15 @@ function formateDate(date) {
     <table>
         <thead>
             <tr>
+                <th>No</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Registered Date</th>
             </tr>
         </thead>
         <tbody>
-            <tr v-for="user in users" :key="user.id">
+            <tr v-for="(user, index) in users" :key="user.id">
+                <td>{{ index + 1 }}</td>
                 <td>{{ user.name }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ formateDate(user.created_at) }}</td>
