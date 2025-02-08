@@ -1,11 +1,14 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Models\User;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
-    return Inertia::render('Home');
+
+    $users = User::all();
+    return Inertia::render('Home',['users'=> $users]);
 })->name('home');
 
 
