@@ -10,7 +10,7 @@
     </Head>
 
     <h1>Home Page</h1>
-    <p> Welcome to {{ $page.component }} page: {{ $page.props.user }}</p>
+    <p> Welcome to {{ $page.component }} page: {{ $page.props.auth.user ? $page.props.auth.user.name : 'Guest' }}</p>
     
 
 </template>
