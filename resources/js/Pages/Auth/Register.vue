@@ -23,6 +23,7 @@ import TextInput from '../Components/TextInput.vue';
         email:null,
         password:null,
         password_confirmation:null,
+        avatar:null,
     });
 
     // const submit = () => {
@@ -30,6 +31,11 @@ import TextInput from '../Components/TextInput.vue';
     //         onError:() => form.reset('password','password_confirmation')
     //     })
     // }
+
+    const change =(e)=>{
+        console.log(e.target.files[0]);
+        form.avatar = e.target.files[0];
+    }
 
     // other solution
     const submit = () => {
@@ -50,6 +56,12 @@ import TextInput from '../Components/TextInput.vue';
 
         <form @submit.prevent="submit">
             
+            <div>
+                <label for="avatar">Avatar</label>
+                <input type="file" id="avatar" @input="change">
+                <p class="error">{{ form.errors.avatar }}</p>
+            </div>
+
             <TextInput name="name" v-model="form.name" :message="form.errors.name" />
             <TextInput name="email" type="email"  v-model="form.email" :message="form.errors.email" />
             <TextInput name="password" type="password"  v-model="form.password" :message="form.errors.password" />

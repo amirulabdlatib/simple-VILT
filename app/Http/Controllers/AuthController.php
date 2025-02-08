@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class AuthController extends Controller
 {
@@ -14,13 +15,18 @@ class AuthController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|confirmed',
+            'avatar' => 'nullable|file'
         ]);
+
+        if($request->hasFile('avatar')){
+            $validated_data['avatar'] = Storage::disk('public')->put('avatars', $request->avatar);
+        }
 
         $user = User::create($validated_data);
 
         Auth::login($user);
 
-        return redirect()->route('home');
+        return redirect()->intended('dashboard');
 
     }
 
