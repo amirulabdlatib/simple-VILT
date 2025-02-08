@@ -18,9 +18,6 @@
 
                 <div class="space-x-6">
                     <Link :href="route('register')" class="nav-link">Register</Link>
-                </div>
-
-                <div class="space-x-6">
                     <Link :href="route('login')" class="nav-link">Login</Link>
                 </div>
 
