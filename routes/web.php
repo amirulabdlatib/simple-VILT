@@ -9,11 +9,6 @@ Route::get('/', function () {
 })->name('home');
 
 Route::inertia('/register','Auth/Register')->name('register');
-
-Route::get('/login',function(){
-    return Inertia::render('Auth/Login');
-})->name('login');
-
 Route::post('/register',[AuthController::class,'register']);
 
 // Alternative 
