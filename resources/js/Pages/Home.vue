@@ -27,6 +27,7 @@ function formateDate(date) {
             <tr>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Registered Date</th>
             </tr>
         </thead>
         <tbody>
