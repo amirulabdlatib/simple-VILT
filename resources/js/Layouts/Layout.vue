@@ -17,6 +17,7 @@
                 </div>
 
                 <div v-if="$page.props.auth.user" class="space-x-6">
+                    <Link :href="route('dashboard')" class="nav-link">Dashboard</Link>
                     <Link :href="route('logout')" method="POST" as="button" type="button" class="nav-link">Logout</Link>
                 </div>
                 <div v-else class="space-x-6">

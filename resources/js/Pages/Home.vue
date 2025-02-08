@@ -9,8 +9,6 @@
         <meta head-key="desc" name="description" content="Home page description">
     </Head>
 
-    <h1>Home Page</h1>
-    <p> Welcome to {{ $page.component }} page: {{ $page.props.auth.user ? $page.props.auth.user.name : 'Guest' }}</p>
-    
+    <h1>Home Page</h1>    
 
 </template>
