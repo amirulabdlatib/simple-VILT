@@ -24,8 +24,17 @@ import { router,useForm } from '@inertiajs/vue3';
         password_confirmation:null,
     });
 
+    // const submit = () => {
+    //     form.post('/register',{
+    //         onError:() => form.reset('password','password_confirmation')
+    //     })
+    // }
+
+    // other solution
     const submit = () => {
-        form.post('/register')
+        form.post(route('register'),{
+            onError:() => form.reset('password','password_confirmation')
+        })
     }
 
 </script>
@@ -42,14 +51,17 @@ import { router,useForm } from '@inertiajs/vue3';
             <div class="mb-6">
                 <label>Name</label>
                 <input type="text" v-model="form.name">
+                <small class="text-red-500">{{ form.errors.name }}</small>
             </div>
             <div class="mb-6">
                 <label>Email</label>
                 <input type="text" v-model="form.email">
+                <small class="text-red-500">{{ form.errors.email }}</small>
             </div>
             <div class="mb-6">
                 <label>Password</label>
                 <input type="password" v-model="form.password">
+                <small class="text-red-500">{{ form.errors.password }}</small>
             </div>
             <div class="mb-6">
                 <label>Confirm Password</label>
@@ -58,7 +70,7 @@ import { router,useForm } from '@inertiajs/vue3';
 
             <div>
                 <p class="">Already a user? <a href="#" class="text-link">Login</a></p>
-                <button class="primary-btn">Register</button>
+                <button class="primary-btn" :disabled="form.processing">Register</button>
             </div>
 
         </form>
