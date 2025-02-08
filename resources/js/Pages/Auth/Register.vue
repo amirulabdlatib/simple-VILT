@@ -56,7 +56,7 @@ import TextInput from '../Components/TextInput.vue';
             <TextInput name="confirm password" type="password"  v-model="form.password_confirmation"/>
 
             <div>
-                <p class="">Already a user? <a href="#" class="text-link">Login</a></p>
+                <p class="">Already a user? <a :href="route('login')" class="text-link">Login</a></p>
                 <button class="primary-btn" :disabled="form.processing">Register</button>
             </div>
 
