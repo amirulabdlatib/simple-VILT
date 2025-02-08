@@ -1,15 +1,31 @@
 <script setup>
 import { reactive } from 'vue';
+import { router,useForm } from '@inertiajs/vue3';
 
-    const form = reactive({
+    // Solution 1
+
+    // const form = reactive({
+    //     name:null,
+    //     email:null,
+    //     password:null,
+    //     password_confirmation:null,
+    // });
+
+    // const submit = () => {
+    //     router.post('/register',form);
+    // }
+
+    // Solution 2
+
+    const form = useForm({
         name:null,
         email:null,
         password:null,
         password_confirmation:null,
     });
 
-    const submit = () =>{
-        console.log(form);
+    const submit = () => {
+        form.post('/register')
     }
 
 </script>
