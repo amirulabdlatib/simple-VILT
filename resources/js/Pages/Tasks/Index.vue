@@ -53,6 +53,7 @@ function formateDate(date) {
                 <td>{{ task.description }}</td>
                 <td>{{ formateDate(task.created_at) }}</td>
                 <td class="space-x-2">
+                    <a :href="route('tasks.show', task.id)" class="text-blue-500 underline">Detail</a>
                     <button @click="deleteTask(task.id)" class="bg-red-500 text-white px-2 py-1 rounded">Delete</button>
                 </td>
             </tr>
