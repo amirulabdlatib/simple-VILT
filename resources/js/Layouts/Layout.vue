@@ -27,6 +27,15 @@
                     :class="{'bg-slate-700': $page.component === 'Dashboard'}"
                     >
                     Dashboard</Link>
+
+                    <Link
+                    href=""
+                    class="nav-link"
+                    :class="{'bg-slate-700': $page.component === 'Dashboard'}"
+                    >
+                        Tasks
+                    </Link>
+
                     <Link 
                     :href="route('logout')" 
                     method="POST" 

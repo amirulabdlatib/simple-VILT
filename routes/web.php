@@ -4,6 +4,7 @@ use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\TaskController;
 
 Route::get('/', function () {
 
@@ -21,5 +22,6 @@ Route::middleware(['guest'])->group(function(){
    
 Route::middleware(['auth'])->group(function(){
     Route::inertia('/dashboard','Dashboard')->name('dashboard');
+    Route::resource('/tasks',TaskController::class);
     Route::post('/logout',[AuthController::class, 'logout'])->name('logout');
 });
