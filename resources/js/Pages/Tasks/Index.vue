@@ -1,8 +1,17 @@
 <script setup>
+import { useForm } from '@inertiajs/vue3';
 import FlashMessage from '../Components/FlashMessage.vue';
 defineProps({
     tasks:Object,
 })
+
+const form = useForm({})
+
+const deleteTask =(id)=>{
+    if(confirm('Are you sure to delete?')){
+        form.delete(route('tasks.destroy',id))
+    }
+}
 
 function formateDate(date) {
     return new Date(date).toLocaleDateString('en-US', {
@@ -34,6 +43,7 @@ function formateDate(date) {
                 <th>Name</th>
                 <th>Email</th>
                 <th>Registered Date</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -42,6 +52,9 @@ function formateDate(date) {
                 <td>{{ task.name }}</td>
                 <td>{{ task.description }}</td>
                 <td>{{ formateDate(task.created_at) }}</td>
+                <td class="space-x-2">
+                    <button @click="deleteTask(task.id)" class="bg-red-500 text-white px-2 py-1 rounded">Delete</button>
+                </td>
             </tr>
         </tbody>
     </table>
