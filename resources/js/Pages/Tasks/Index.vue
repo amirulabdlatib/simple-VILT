@@ -23,7 +23,7 @@ function formateDate(date) {
         <h1>My Tasks</h1>
     </div>
 
-    <table v-if="tasks,length">
+    <table v-if="tasks.length">
         <thead>
             <tr>
                 <th>No</th>
@@ -43,5 +43,5 @@ function formateDate(date) {
     </table>
 
     <p v-else> No tasks found.</p>
-    
+
 </template>
