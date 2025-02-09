@@ -1,5 +1,7 @@
 <script setup>
-
+defineProps({
+    tasks:Object,
+})
 
 </script>
 
@@ -29,9 +31,9 @@
                     Dashboard</Link>
 
                     <Link
-                    href=""
+                    :href="route('tasks.index')"
                     class="nav-link"
-                    :class="{'bg-slate-700': $page.component === 'Dashboard'}"
+                    :class="{'bg-slate-700': $page.component.startsWith('Tasks/')}"
                     >
                         Tasks
                     </Link>

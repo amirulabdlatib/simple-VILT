@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
+use Inertia\Inertia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
@@ -11,7 +14,9 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
+        $tasks = Task::where('user_id',Auth::id())->get();
+
+        return Inertia::render('Tasks/Index',compact('tasks'));
     }
 
     /**
