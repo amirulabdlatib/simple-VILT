@@ -1,4 +1,5 @@
 <script setup>
+import FlashMessage from '../Components/FlashMessage.vue';
 defineProps({
     tasks:Object,
 })
@@ -19,8 +20,11 @@ function formateDate(date) {
         <title>Task</title>
     </Head>
 
-    <div class="my-3">
+    <FlashMessage/>
+
+    <div class="my-3 flex justify-between">
         <h1>My Tasks</h1>
+        <a :href="(route('tasks.create'))" class="primary-btn w-24">Add Task</a>
     </div>
 
     <table v-if="tasks.length">

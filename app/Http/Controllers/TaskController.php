@@ -24,7 +24,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Tasks/Create');
     }
 
     /**
@@ -32,7 +32,19 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required|max:255',
+            'description' => 'required',
+        ]);
+
+        Task::create([
+            'user_id' => Auth::id(),
+            'name' => $data['name'],
+            'description' => $data['description'],
+        ]);
+
+        return redirect()->route('tasks.index')->with('message','You have successfully create a task.');
+
     }
 
     /**
