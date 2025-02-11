@@ -1,7 +1,4 @@
 <script setup>
-defineProps({
-    tasks:Object,
-})
 
 </script>
 
