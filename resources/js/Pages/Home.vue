@@ -46,9 +46,9 @@ function formateDate(date) {
         <Link v-for="link in users.links" 
         :key="link.label" 
         v-html="link.label"
-        :href="link.url" 
+        :href="link.url || '#'" 
         class="p-1"
-        :class="{'text-slate-300': !link.url, 'text-blue-500':link.active}" 
+        :class="{'text-slate-300 cursor-not-allowed pointer-events-none': !link.url, 'text-blue-500':link.active}" 
       >
         </Link>
 
