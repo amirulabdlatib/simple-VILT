@@ -32,13 +32,30 @@ function formateDate(date) {
             </tr>
         </thead>
         <tbody>
-            <tr v-for="(user, index) in users" :key="user.id">
-                <td>{{ index + 1 }}</td>
+            <tr v-for="(user, index) in users.data" :key="user.id">
+                <td>{{ users.from + index }}</td>
                 <td>{{ user.name }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ formateDate(user.created_at) }}</td>
             </tr>
         </tbody>
     </table>
+
+    <!-- Pagination -->
+    <div>
+        <Link v-for="link in users.links" 
+        :key="link.label" 
+        v-html="link.label"
+        :href="link.url" 
+        class="p-1"
+        :class="{'text-slate-300': !link.url, 'text-blue-500':link.active}" 
+      >
+        </Link>
+
+        <p class="text-slate-600 text-sm">
+            Showing {{ users.from }} to {{ users.to }} of {{ users.total }}
+        </p>
+
+    </div>
 
 </template>

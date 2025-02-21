@@ -8,7 +8,7 @@ use App\Http\Controllers\TaskController;
 
 Route::get('/', function () {
 
-    $users = User::all();
+    $users = User::paginate(10);
     return Inertia::render('Home',['users'=> $users]);
 })->name('home');
 
