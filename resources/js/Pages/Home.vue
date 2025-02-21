@@ -20,7 +20,11 @@ function formateDate(date) {
         <meta head-key="desc" name="description" content="Home page description">
     </Head>
 
-    <h1 class="my-3">Home Page</h1>
+    <div class="flex justify-end mb-4">
+        <div class="w-1/4">
+            <input type="search" placeholder="Search...">
+        </div>
+    </div>
 
     <table>
         <thead>
