@@ -1,17 +1,11 @@
 <?php
 
-use App\Models\User;
-use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TaskController;
 
-Route::get('/', function () {
-
-    $users = User::paginate(10);
-    return Inertia::render('Home',['users'=> $users]);
-})->name('home');
-
+Route::get('/',[HomeController::class,'index'])->name('home');
 
 Route::middleware(['guest'])->group(function(){
     Route::inertia('/register','Auth/Register')->name('register');
