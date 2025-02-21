@@ -10,7 +10,15 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        $users = User::paginate(10);
-        return Inertia::render('Home',['users'=> $users]);
+        $query = User::query();
+    
+        if ($request->has('search')) {
+            $query->where('name', 'LIKE', "%{$request->search}%")
+                  ->orWhere('email', 'LIKE', "%{$request->search}%");
+        }
+    
+        $users = $query->paginate(10)->withQueryString();
+    
+        return Inertia::render('Home', ['users' => $users]);
     }
 }

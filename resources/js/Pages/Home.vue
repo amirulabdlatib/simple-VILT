@@ -1,7 +1,20 @@
 <script setup>
-defineProps({
+import { debounce, throttle } from 'lodash';
+import { ref,watch } from 'vue';
+import { router } from '@inertiajs/vue3';
+
+const props = defineProps({
     users: Object,
+    searchTerm: String,
 })
+
+const search = ref(props.searchTerm)
+
+watch(search,
+      debounce( 
+        (q) => router.get('/',{search:q},{preserveState:true}),
+        1000)
+    )
 
 function formateDate(date) {
     return new Date(date).toLocaleDateString('en-US', {
@@ -22,7 +35,7 @@ function formateDate(date) {
 
     <div class="flex justify-end mb-4">
         <div class="w-1/4">
-            <input type="search" placeholder="Search...">
+            <input type="search" placeholder="Search..." v-model="search">
         </div>
     </div>
 
